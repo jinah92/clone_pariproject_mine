@@ -1,14 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/main.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="../css/cover.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style id="mystyle"></style>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://localhost:3001/js/client.js"></script>
-    <title><%= title %></title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    >
 </head>
-<body>
-    게시판 화면
-</body>
+
+<body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Cover</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#" onclick="movehome()">Home</a>
+            
+            <a id="report_view_btn" class="nav-link active" onclick="turnToBoard()">Board</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav>
+        </div>
+      </header>
+    
+      <div id="content_div">
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-9">
+                <h4><small>Vulnerability</small></h4>
+                <h2 >신규 취약점 보고 리스트</h2>
+
+                
+                <button id="comment_form_btn" type="submit" class=" btn btn-danger" style="float: right;">Comment</button>
+                <div id="comment_form" style="display: none;">
+                <h4 style="float: left;">Comments</h4>
+                <form role="form">
+                    <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Leave a Comments"></textarea>
+                    </div>
+                    <input type="button" class="btn btn-danger" style="float: right;" value="Cancel"><input type="button" class="btn btn-success" style="float: right;" value="Submit">
+                </form>
+                </div>
+                <br><br><br><br>
+                <% for(var i=0; i < result.length; i++) {%>
+                <p style="text-align: right;"><span class="glyphicon glyphicon-time"></span>Date: <%= result[i].upload_time%></p>
+                <h4 style="text-align: left;"><span class="label label-primary">title</span>     <%= result[i].title%></h4>
+                
+                <div style="text-align: left;"><%= result[i].comment%></div>
+                <br><br>
+
+                
+                <br><br>
+                <hr>
+                <% } %>
+
+                
+                
+                </div>
+
+                
+
+            </div>
+        </div>
+      </div>
+  </body>
+
+  <script type="text/javascript">
+    function movehome(){
+      location.href="/index";
+    }
+  </script>
 </html>

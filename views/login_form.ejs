@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="http://localhost:3001/js/client.js"></script>
+  <style>
+  .modal-header, h4, .close {
+    background-color: #333;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-footer {
+    background-color: #f9f9f9;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  
+    <div class="modal-header" style="padding:35px 50px;">
+      <h4><span class="glyphicon glyphicon-lock"></span><%= title %> </h4>
+    </div>
+    <div class="modal-body" style="padding:40px 50px;">
+      <form role="form">
+        <div id="login_div"> 
+        <div class="form-group">
+          <label for="email"><span class="glyphicon glyphicon-user"></span> e-mail</label>
+          <input type="text" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+          <input type="password" class="form-control" id="pw" placeholder="Enter password">
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="" checked>Remember me</label>
+        </div>
+         <!--  <button type="submit" id="login_btn" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button> -->
+         <input type="button" id="login_btn" class="btn btn-primary btn-block" value="Login">
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" onclick="javascript:window.close()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+      <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" onclick="movepage()"><span class="glyphicon glyphicon-user"></span> 회원가입</button>
+      <p>Not a member? <a href="#" id="contact_open_btn" onclick="movepage()">Sign Up</a></p>
+      <p>Forgot <a href="#" onclick="movepw()">Password?</a></p>
+      <script type="text/javascript">
+        function movepw(){
+            location.href ="/password/form";
+        }
+        
+        function movepage(){
+            location.href ="/contact_form";
+        }
+      </script>
+    </div>
+
+</div>
+ 
+<script>
+$(document).ready(function(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+});
+</script>
+
+</body>
+</html>

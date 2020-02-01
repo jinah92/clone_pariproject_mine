@@ -33,9 +33,9 @@
         <div class="inner">
           <h3 class="masthead-brand">Cover</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="#" onclick="movehome()">Home</a>
             
-            <a id="report_view_btn" class="nav-link active" href="#">Board</a>
+            <a id="report_view_btn" class="nav-link active">Board</a>
             <a class="nav-link" href="#">Contact</a>
           </nav>
         </div>
@@ -46,7 +46,18 @@
           <h1 class="cover-heading">My Safe Square</h1>
           <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
           <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary">Log In</a>
+            <%
+            if(flag==0){
+        %>
+            <button type="button" class="btn btn-lg btn-secondary" id="login_open_btn">Log In</button>
+            <%
+          }else{
+      %>
+              <%= name %>님 반갑습니다.
+                  <input id="logout_btn" class="btn btn-lg btn-secondary" type="button" value="logout" style="color: white; background-color: navy;">
+                  <%
+          }
+      %>
           <button id="report_btn" class="btn btn-lg btn-secondary" style="color:white; background-color:crimson;" href="#">Report</button>        
           </p>
         </main>
@@ -59,4 +70,10 @@
     </div>
 
   </body>
+  <script type="text/javascript">
+    function movehome(){
+      location.href="/";
+    }
+
+  </script>
 </html>
